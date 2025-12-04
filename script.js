@@ -12,8 +12,10 @@ container.addEventListener("mouseover", (e) => {
 });
 
 input.addEventListener("click", () => {
-    let width = prompt("how many squares per side do you want?");
-
+    let width = prompt("How many squares per side do you want?");
+    while (width > 100) {
+        width = prompt("Value must be below 100!");
+    }
     generateSquareGrid(width);
 });
 
