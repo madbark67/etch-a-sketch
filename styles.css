@@ -1,11 +1,17 @@
 .container {
     display: flex;
     flex-wrap: wrap;
+    width: 600px;
 }
 
 .square {
     flex: 0 0 calc(100%/16);
-    height: 20px;
+    aspect-ratio: 1/1;
     box-sizing: border-box;
     border: 1px solid black;
+
+}
+
+.color {
+    background-color: blue;
 }

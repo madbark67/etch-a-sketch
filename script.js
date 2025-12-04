@@ -1,7 +1,28 @@
 const container = document.querySelector(".container");
+const header = document.querySelector(".header");
 
-for (let i = 0; i < 256; i++) {
-    let square = document.createElement("div");
-    square.className = "square";
-    container.appendChild(square);
+const input = document.createElement("button");
+input.textContent = "New";
+header.appendChild(input);
+
+generateSquareGrid(16);
+
+container.addEventListener("mouseover", (e) => {
+    e.target.classList.add('color');
+});
+
+input.addEventListener("click", () => {
+    let width = prompt("how many squares per side do you want?");
+
+    generateSquareGrid(width);
+});
+
+function generateSquareGrid(width) {
+    container.replaceChildren();
+    for (let i = 0; i < width**2; i++) {
+        let square = document.createElement("div");
+        square.className = "square";
+        square.style.flexBasis = `calc(100%/${width})`;
+        container.appendChild(square);
+    }
 }
